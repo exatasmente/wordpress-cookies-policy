@@ -77,6 +77,11 @@ function run_cookies_policy() {
 
 	$plugin = new Cookies_Policy();
 	$plugin->run();
+    if ( ! function_exists( 'allow_cookies' ) ) {
+        function allow_cookies() {
+            return isset($_COOKIE['permission_use_cookies']) ;
+        }
+    }
 
 }
 run_cookies_policy();
