@@ -1,0 +1,16 @@
+{
+  "name": "exatasmente/cookies-policy",
+  "description": "Wordpress Cookies Policy",
+  "keywords": ["wordpress", "plugin"],
+  "homepage": "https://github.com/exatasmente/cookies-policy",
+  "authors": [
+    {
+      "name": "Rits Tecnologia",
+      "homepage": "http://rits.dev"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=5.6"
+  }
+}

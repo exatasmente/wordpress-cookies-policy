@@ -21,32 +21,10 @@
  * @author     exatasmente <luizneto@rits.com.br>
  */
 class Cookies_Policy_Public {
-
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
 	private $plugin_name;
-
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
 	private $version;
 
-	/**
-	 * Initialize the class and set its properties.
-	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
-	 */
+
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
@@ -54,22 +32,13 @@ class Cookies_Policy_Public {
 
 	}
 
-	/**
-	 * Register the stylesheets for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
+
 	public function enqueue_styles() {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/cookies-policy-public.css', array(), $this->version, 'all' );
 
 	}
 
-	/**
-	 * Register the JavaScript for the public-facing side of the site.
-	 *
-	 * @since    1.0.0
-	 */
 	public function enqueue_scripts() {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cookies-policy-public.js', array( 'jquery' ), $this->version, true);
     }
@@ -81,10 +50,16 @@ class Cookies_Policy_Public {
         if( isset($domainOption['domain']) ){
             $domain = $domainOption['domain'];
         }
+
         $cookie = isset($_COOKIE['permission_use_cookies']) ? $_COOKIE['permission_use_cookies'] : null;
-        if ($cookie != null ) {
-            setcookie( "permission_use_cookies", "allow", time()*5, "/", $domain);
-        }else{
+
+        $valid = true;
+        if ($cookie == "allow") {
+            setcookie('permission_use_cookies', null, -1);
+            setcookie( "permission_use_cookies","allow", time()*5, "/",'.'.$domain,false,true);
+
+        }else if ($cookie == null) {
+            setcookie( "permission_use_cookies",null, -1, "/",'.'.$domain,false,true);
             $this->cookies_html();
         }
 
