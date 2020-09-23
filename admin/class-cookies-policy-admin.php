@@ -100,14 +100,14 @@ class Cookies_Policy_Admin {
 
         add_settings_section(
             'cookies_setting_section', // id
-            'Configirações', // title
+            'Configurações', // title
             array( $this, 'cookies_section_info' ), // callback
             $this->plugin_name.'options' // page
         );
 
         add_settings_field(
             'domain', // id
-            'Dominio', // title
+            'Domínio', // title
             array( $this, 'domain_callback' ), // callback
             $this->plugin_name.'options', // page
             'cookies_setting_section' // section
