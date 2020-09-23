@@ -71,6 +71,10 @@ class Cookies_Policy_Public {
         {
             include_once('partials/cookies-policy-public-display.php');
         }
+        function add_js_cookie(){
+            wp_enqueue_script('js-cookie',"https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js",array(),'',false);
+        }
+        add_action('wp_head','add_js_cookie');
         add_action('wp_footer', 'add_cookie_html_message');
     }
 
