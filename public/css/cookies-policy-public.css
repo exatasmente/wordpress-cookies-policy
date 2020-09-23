@@ -1,0 +1,52 @@
+.permission-use-cookies{
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 99999;
+}
+.permission-use-cookies-content {
+    background-color: #171717;
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    margin: auto;
+}
+@media(min-width:768px) {
+    .permission-use-cookies-content {
+        background-color: #171717;
+        display: flex;
+        width: 80%;
+        padding: 15px;
+        margin: auto;
+    }
+}
+.permission-use-cookies-message{
+    font-size: 16px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    color: #ffffff;
+}
+.permission-use-cookies-message-link{
+    text-decoration: underline;
+    color: #dcdc30;
+}
+.permission-use-cookies-actions{
+    margin : auto;
+    padding : 10px;
+}
+.permission-use-cookies-button {
+    font-size: 16px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    border-radius: 5px;
+    background-color: #dcdc30;
+    color: #171717;
+    padding: 10px 15px;
+}
+.permission-use-cookies-button:hover {
+    color: #171717;
+}
+.permission-use-cookies-button:active{
+    color: #171717;
+}
