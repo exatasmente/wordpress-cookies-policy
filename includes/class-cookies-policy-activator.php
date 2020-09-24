@@ -18,7 +18,7 @@ class Cookies_Policy_Activator {
             'message' => 'Nossos sites utilizam cookies para personalizar anúncios e melhorar a sua experiência. Ao continuar navegando, você concorda com a nossa,',
             'link_message' => 'Política de Utilização de Cookies.',
             'link' => '',
-            'button-text' => 'Prosseguir'
+            'button_text' => 'Prosseguir'
         ]);
 	}
 
