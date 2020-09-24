@@ -20,14 +20,17 @@ the helper method allow_cookies() handles the cookies policy consent
 
 == Changelog ==
 
+= 2.0.0 =
+* Custom message content added
+* Custom cookies link policy added
+* Jquery html id tag error fixed
+
 
 = 1.1.2 =
 * Fix admin hooks load
 * Remove unnecessary files and methods
 * Fix allow cookies flow
 * Fix cookie set after accept cookies policy
-
-
 
 = 1.1.1 =
 * Improve hooks load
