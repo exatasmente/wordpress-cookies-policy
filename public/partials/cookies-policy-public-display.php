@@ -6,11 +6,6 @@
     $cookies_policy_button_text = $cookies_policy_options['button_text']
 ?>
 <div class="permission-use-cookies" role="dialog" id="allow-cookies-policy-component">
-    <style scoped>
-        .permission-use-cookies-component{
-            position: relative !important;
-        }
-    </style>
     <div class="permission-use-cookies-content">
         <span  class="permission-use-cookies-message">
             <?php echo($cookies_policy_message) ?>,
