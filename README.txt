@@ -20,6 +20,11 @@ the helper method allow_cookies() handles the cookies policy consent
 
 == Changelog ==
 
+= 1.1.3 =
+* Fix allow cookies flow
+* Fix cookie set after accept cookies policy
+
+
 = 1.1.2 =
 * Fix admin hooks load
 * Remove unnecessary files and methods
