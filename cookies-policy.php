@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              github.com/exatasmente
+ * @link              http://rits.dev
  * @since             1.0.0
  * @package           Cookies_Policy
  *
  * @wordpress-plugin
  * Plugin Name:       Cookies Policy
- * Plugin URI:        github.com/exatasmente
+ * Plugin URI:        http://rits.dev
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.1.2
- * Author:            exatasmente
- * Author URI:        github.com/exatasmente
+ * Version:           2.0
+ * Author:            Rits Tecnologia
+ * Author URI:        http://rits.dev
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       cookies-policy
