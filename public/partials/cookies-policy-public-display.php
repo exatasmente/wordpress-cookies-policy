@@ -1,6 +1,6 @@
 <?php
 ?>
-<div class="permission-use-cookies" role="dialog" id="inversa-cookies-policy-component">
+<div class="permission-use-cookies" role="dialog" id="cookies-policy-component">
     <div class="permission-use-cookies-content">
         <span  class="permission-use-cookies-message">
             Nossos sites utilizam cookies para personalizar anúncios e melhorar a sua experiência. Ao continuar navegando, você concorda com a nossa,
