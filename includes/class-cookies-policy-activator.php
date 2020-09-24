@@ -13,7 +13,13 @@
 class Cookies_Policy_Activator {
 
 	public static function activate() {
-        add_option('cookies_policy_options','');
+        add_option('cookies_policy_options',[
+            'domain' => '',
+            'message' => 'Nossos sites utilizam cookies para personalizar anúncios e melhorar a sua experiência. Ao continuar navegando, você concorda com a nossa,',
+            'link_message' => 'Política de Utilização de Cookies.',
+            'link' => '',
+            'button-text' => 'Prosseguir'
+        ]);
 	}
 
 }
