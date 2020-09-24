@@ -16,7 +16,7 @@
  * Plugin Name:       Cookies Policy
  * Plugin URI:        github.com/exatasmente
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Version:           1.1.2
  * Author:            exatasmente
  * Author URI:        github.com/exatasmente
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'COOKIES_POLICY_VERSION', '1.0.0' );
+define( 'COOKIES_POLICY_VERSION', '1.1.2' );
 
 /**
  * The code that runs during plugin activation.
