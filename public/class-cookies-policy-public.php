@@ -52,17 +52,12 @@ class Cookies_Policy_Public {
         }
 
         $cookie = isset($_COOKIE['permission_use_cookies']) ? $_COOKIE['permission_use_cookies'] : null;
-
-        $valid = true;
-        if ($cookie == "allow") {
-            setcookie('permission_use_cookies', null, -1);
+        $allow  = isset($_COOKIE['allow_cookies']) ? $_COOKIE['allow_cookies'] : null;
+        if ( $allow && $cookie == null ) {
             setcookie( "permission_use_cookies","allow", time()*5, "/",'.'.$domain,false,true);
-
         }else if ($cookie == null) {
-            setcookie( "permission_use_cookies",null, -1, "/",'.'.$domain,false,true);
             $this->cookies_html();
         }
-
 
     }
 
