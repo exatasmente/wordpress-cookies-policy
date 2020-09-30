@@ -17,8 +17,14 @@ Once the user accept the cookies policy in one website the plugin will handle th
 
 the helper method allow_cookies() handles the cookies policy consent
 
+Settings are in :  Settings -> Cookies
 
 == Changelog ==
+
+= 2.0.1 =
+* Fix styles
+* Added target _blank to cookies policy link
+
 
 = 2.0.0 =
 * Custom message content added
