@@ -8,8 +8,8 @@
 <div class="permission-use-cookies" role="dialog" id="allow-cookies-policy-component">
     <div class="permission-use-cookies-content">
         <span  class="permission-use-cookies-message">
-            <?php echo($cookies_policy_message) ?>,
-            <a  href="<?php echo($cookies_policy_link)?>" class="permission-use-cookies-message-link"><?php echo($cookies_policy_link_message) ?></a>
+            <?php echo($cookies_policy_message) ?>
+            <a  href="<?php echo($cookies_policy_link)?>" target="_blank" class="permission-use-cookies-message-link"><?php echo($cookies_policy_link_message) ?></a>
         </span>
         <div class="permission-use-cookies-actions">
             <a id="allow-cookies-button" role="button" tabindex="0" class="permission-use-cookies-button"><?php echo($cookies_policy_button_text)?></a>
