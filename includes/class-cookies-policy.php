@@ -23,7 +23,7 @@ class Cookies_Policy {
         if ( defined( 'COOKIES_POLICY_VERSION' ) ) {
             $this->version = COOKIES_POLICY_VERSION;
         } else {
-            $this->version = '1.0.0';
+            $this->version = '3.0.0';
         }
         $this->plugin_name = 'cookies-policy';
 
