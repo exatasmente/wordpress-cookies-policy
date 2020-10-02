@@ -21,56 +21,59 @@
  * @author     exatasmente <luizneto@rits.com.br>
  */
 class Cookies_Policy_Public {
-	private $plugin_name;
-	private $version;
+    private $plugin_name;
+    private $version;
 
 
-	public function __construct( $plugin_name, $version ) {
+    public function __construct( $plugin_name, $version ) {
 
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+        $this->plugin_name = $plugin_name;
+        $this->version = $version;
 
-	}
-
-
-	public function enqueue_styles() {
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/cookies-policy-public.css', array(), $this->version, 'all' );
-
-	}
-
-	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cookies-policy-public.js', array( 'jquery' ), $this->version, true);
     }
 
-    public function allow_cookies()
+
+    public function enqueue_styles() {
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/cookies-policy-public.css', array(), $this->version, 'all' );
+    }
+
+    public function enqueue_scripts() {
+        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/cookies-policy-public.js', array( 'jquery' ), $this->version, true);
+        add_action('wp_footer', array($this, 'load_html'));
+        wp_localize_script( $this->plugin_name, 'cookies_message', ['html' => $this->cookies_html()]);
+    }
+
+    public function cookies_policy_init()
     {
-        $domainOption = get_option('cookies_policy_options');
-        $domain = $_SERVER['HTTP_HOST'];
-        if( isset($domainOption['domain']) ){
-            $domain = $domainOption['domain'];
-        }
-
         $cookie = isset($_COOKIE['permission_use_cookies']) ? $_COOKIE['permission_use_cookies'] : null;
-        $allow  = isset($_COOKIE['allow_cookies']) ? $_COOKIE['allow_cookies'] : null;
-        if ( $allow && $cookie == null ) {
-            setcookie( "permission_use_cookies","allow", time()*5, "/",'.'.$domain,false,true);
-        }else if ($cookie == null) {
-            $this->cookies_html();
-        }
+        if (!$cookie && !is_admin()) {
+            $this->enqueue_scripts();
+            $this->enqueue_styles();
 
+        }
     }
 
-	public function cookies_html(){
-	    function add_cookie_html_message()
-        {
-            include_once('partials/cookies-policy-public-display.php');
-        }
-        function add_js_cookie(){
-            wp_enqueue_script('js-cookie',"https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js",array(),'',false);
-        }
-        add_action('wp_head','add_js_cookie');
-        add_action('wp_footer', 'add_cookie_html_message');
+    public function cookies_html(){
+        $cookies_policy_options = get_option( 'cookies_policy_options' );
+        $cookies_policy_message = $cookies_policy_options['message'];
+        $cookies_policy_link    = $cookies_policy_options['link'];
+        $cookies_policy_link_message = $cookies_policy_options['link_message'];
+        $cookies_policy_button_text = $cookies_policy_options['button_text'];
+
+        return '<div class="permission-use-cookies" role="dialog" id="allow-cookies-policy-component">'
+            .'<div class="permission-use-cookies-content">'
+            .'<span  class="permission-use-cookies-message">'
+            .$cookies_policy_message
+            .'<a  href="'.$cookies_policy_link.'" target="_blank" class="permission-use-cookies-message-link">'.$cookies_policy_link_message.'</a>'
+            .'</span>'
+            .'<div class="permission-use-cookies-actions">'
+            .'<a id="allow-cookies-button" role="button" tabindex="0" class="permission-use-cookies-button">'.$cookies_policy_button_text.'</a>'
+            .'</div>'
+            .'</div>'
+            .'</div>';
+    }
+    public function load_html(){
+        echo $this->cookies_html();
     }
 
 }
