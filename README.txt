@@ -21,6 +21,15 @@ Settings are in :  Settings -> Cookies
 
 == Changelog ==
 
+= 3.0 =
+* Update Cookies Policy to handle cookies via JavaScript
+* JsCookies dependency removed
+* Plugin now handles when the cookies policy policy message injection fails via wp_footer
+* Using Lax samesite policy -> CORS behavior not handled by the plugin
+* Cookies policy now set cookies to domain, lp.sub.example.com, sub.example.com -> .example.com
+* Cookies policy now set cookies path value as "/"
+
+
 = 2.0.1 =
 * Fix styles
 * Added target _blank to cookies policy link
